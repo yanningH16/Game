@@ -2,10 +2,10 @@
   <div class="wrap">
     <div>
       <noCont v-if='nocont'></noCont>
-      <h1>{{text}}</h1>
-      <p class="sucess" @click="sucess">怼</p>
-      <p @click="sure" class="sure" ref="sure_1">不怼</p>
-
+      <h2>{{text}}</h2>
+      <p class="re" @click="reset">重置</p>
+      <p class="sucess" @click="sucess" v-show="first">喜欢</p>
+      <p @click="sure" class="sure" ref="sure_1" v-show="two">不喜欢</p>
     </div>
   </div>
 </template>
@@ -22,15 +22,15 @@ export default {
       x: 0,
       y: 0,
       nocont: false,
-      text: '怼大海不？'
+      text: '小姐姐喜欢我么？',
+      first: true,
+      two: true
     }
   },
   created () {
-    this.x = window.screen.availWidth - 100
-    this.y = window.screen.availHeight
+    this.x = window.screen.availWidth - 60
+    this.y = document.body.clientHeight
     console.log(this.x, this.y)
-  },
-  mounted () {
   },
   methods: {
     sure () {
@@ -40,9 +40,19 @@ export default {
       console.log(this.offsetX, this.offsety)
     },
     sucess () {
-      alert('怼的好！！！！')
       this.nocont = true
-      this.text = '大海被怼懵逼了，哈哈哈哈'
+      this.text = '我也喜欢小姐姐，哈哈哈哈'
+      window.scrollTo(0, 0)
+      this.first = false
+      this.two = false
+    },
+    reset () {
+      this.$refs.sure_1.style.marginLeft = 90 + 'px'
+      this.$refs.sure_1.style.marginTop = 80 + 'px'
+      this.nocont = false
+      this.first = true
+      this.two = true
+      this.text = '小姐姐喜欢我么？'
     }
   }
 }
@@ -52,12 +62,14 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .sucess {
-  margin-top: 150px;
   margin-left: 70px;
+  margin-top: 20px;
   background: green;
   padding: 10px;
   width: 50px;
   height: 40 px;
+  border-radius: 5px;
+  border: 2px solid greenyellow;
 }
 .sure {
   margin-top: 80px;
@@ -66,5 +78,18 @@ export default {
   padding: 10px;
   width: 50px;
   height: 40 px;
+  border-radius: 5px;
+  border: 2px solid slateblue;
+}
+.re {
+  text-align: center;
+  padding: 3px;
+  width: 40px;
+  height: 20 px;
+  margin-left: 40%;
+  margin-top: -20px;
+  background: red;
+  border-radius: 3px;
+  color: white;
 }
 </style>
