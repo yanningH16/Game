@@ -2,7 +2,7 @@
   <div class="wrap">
     <div>
       <noCont v-if='nocont'></noCont>
-      <h1>怼大海不？</h1>
+      <h1>{{text}}</h1>
       <p class="sucess" @click="sucess">怼</p>
       <p @click="sure" class="sure" ref="sure_1">不怼</p>
 
@@ -21,7 +21,8 @@ export default {
     return {
       x: 0,
       y: 0,
-      nocont: false
+      nocont: false,
+      text: '怼大海不？'
     }
   },
   created () {
@@ -41,6 +42,7 @@ export default {
     sucess () {
       alert('怼的好！！！！')
       this.nocont = true
+      this.text = '大海被怼懵逼了，哈哈哈哈'
     }
   }
 }
