@@ -1,6 +1,7 @@
 <template>
   <div class="wrap">
     <div>
+      <noCont v-if='nocont'></noCont>
       <h1>怼大海不？</h1>
       <p class="sucess" @click="sucess">怼</p>
       <p @click="sure" class="sure" ref="sure_1">不怼</p>
@@ -10,19 +11,22 @@
 </template>
 
 <script>
+import noCont from '../assets/lottInde'
 export default {
   name: 'HelloWorld',
+  components: {
+    noCont
+  },
   data () {
     return {
-      offsetX: 0,
-      offsety: 0,
       x: 0,
-      y: 0
+      y: 0,
+      nocont: false
     }
   },
   created () {
     this.x = window.screen.availWidth - 100
-    this.y = document.body.clientHeight
+    this.y = window.screen.availHeight
     console.log(this.x, this.y)
   },
   mounted () {
@@ -30,14 +34,13 @@ export default {
   methods: {
     sure () {
       // 获取元素的位置
-      this.offsetX = this.$refs.sure_1.getBoundingClientRect().left
-      this.offsety = this.$refs.sure_1.getBoundingClientRect().top
       this.$refs.sure_1.style.marginLeft = Math.floor(Math.random() * this.x) + 'px'
       this.$refs.sure_1.style.marginTop = Math.floor(Math.random() * this.y) + 'px'
       console.log(this.offsetX, this.offsety)
     },
     sucess () {
       alert('怼的好！！！！')
+      this.nocont = true
     }
   }
 }
