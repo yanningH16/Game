@@ -86,7 +86,7 @@ export default {
   padding: 3px;
   width: 40px;
   height: 20 px;
-  margin-left: 40%;
+  margin-left: 45%;
   margin-top: -20px;
   background: red;
   border-radius: 3px;
