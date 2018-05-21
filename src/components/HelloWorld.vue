@@ -47,7 +47,7 @@ export default {
         this.$refs.sure_1.style.marginTop = -60 + 'px'
         setInterval(() => {
           this.two = false
-          this.sucess()
+          // this.sucess()
         }, 300)
       }
     },
