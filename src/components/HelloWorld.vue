@@ -5,7 +5,9 @@
       <h2>{{text}}</h2>
       <p class="re" @click="reset">重置</p>
       <p class="sucess" @click="sucess" v-show="first">怼</p>
-      <p @mouseover="sure" class="sure" ref="sure_1" v-show="two" @click="sure_2">不怼</p>
+      <transition name="fade" mode="out-in">
+        <p @mouseover="sure" class="sure" ref="sure_1" v-show="two" @click="sure_2">不怼</p>
+      </transition>
     </div>
   </div>
 </template>
@@ -39,11 +41,14 @@ export default {
       this.$refs.sure_1.style.marginLeft = Math.floor(Math.random() * 260) + 'px'
       this.$refs.sure_1.style.marginTop = Math.floor(Math.random() * 300) + 'px'
       console.log(this.$refs.sure_1.style.marginTop, this.$refs.sure_1.style.marginTop)
-      // let i = 0
-      // i++
-      // if (i >= 5) {
-      //   alert('怼')
-      // }
+      this.i++
+      if (this.i > 3) {
+        this.$refs.sure_1.style.marginLeft = 70 + 'px'
+        this.$refs.sure_1.style.marginTop = -60 + 'px'
+        setInterval(() => {
+          this.two = false
+        }, 300)
+      }
     },
     sure_2 () {
       // 获取元素的位置
@@ -78,18 +83,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-body,
-html {
-  height: 100%;
-}
-.wrap {
-  height: 100%;
-}
 .box {
-  height: 100%;
+  /* height: 100%; */
   margin: 0;
   padding: 0;
-  background-image: url('../assets/kan.png');
+  /* background-image: url('../assets/kan.png'); */
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
@@ -119,7 +117,7 @@ html {
   padding: 3px;
   width: 40px;
   height: 20 px;
-  margin-left: 42%;
+  margin: 0 auto;
   margin-top: -20px;
   background: red;
   border-radius: 3px;
