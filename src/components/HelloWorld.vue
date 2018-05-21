@@ -4,8 +4,8 @@
       <noCont v-if='nocont'></noCont>
       <h2>{{text}}</h2>
       <p class="re" @click="reset">重置</p>
-      <p class="sucess" @click="sucess" v-show="first">喜欢</p>
-      <p @click="sure" class="sure" ref="sure_1" v-show="two">不喜欢</p>
+      <p class="sucess" @click="sucess" v-show="first">怼</p>
+      <p @mouseover="sure" class="sure" ref="sure_1" v-show="two">不怼</p>
     </div>
   </div>
 </template>
@@ -22,26 +22,31 @@ export default {
       x: 0,
       y: 0,
       nocont: false,
-      text: '小姐姐喜欢我么？',
+      text: '怼大海不？',
       first: true,
       two: true
     }
   },
   created () {
     this.x = window.screen.availWidth - 60
-    this.y = document.body.clientHeight
+    this.y = window.screen.availHeight
     console.log(this.x, this.y)
   },
   methods: {
     sure () {
       // 获取元素的位置
-      this.$refs.sure_1.style.marginLeft = Math.floor(Math.random() * this.x) + 'px'
-      this.$refs.sure_1.style.marginTop = Math.floor(Math.random() * this.y) + 'px'
-      console.log(this.offsetX, this.offsety)
+      this.$refs.sure_1.style.marginLeft = Math.floor(Math.random() * 400) + 'px'
+      this.$refs.sure_1.style.marginTop = Math.floor(Math.random() * 300) + 'px'
+      console.log(this.$refs.sure_1.style.marginTop, this.$refs.sure_1.style.marginTop)
+      // let i = 0
+      // i++
+      // if (i >= 5) {
+      //   alert('怼')
+      // }
     },
     sucess () {
       this.nocont = true
-      this.text = '我也喜欢小姐姐，哈哈哈哈'
+      this.text = '大海被怼懵逼了，哈哈哈哈'
       window.scrollTo(0, 0)
       this.first = false
       this.two = false
@@ -52,7 +57,7 @@ export default {
       this.nocont = false
       this.first = true
       this.two = true
-      this.text = '小姐姐喜欢我么？'
+      this.text = '怼大海不'
     }
   }
 }
@@ -86,7 +91,7 @@ export default {
   padding: 3px;
   width: 40px;
   height: 20 px;
-  margin-left: 45%;
+  margin-left: 48%;
   margin-top: -20px;
   background: red;
   border-radius: 3px;
