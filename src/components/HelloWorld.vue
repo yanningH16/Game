@@ -4,9 +4,9 @@
       <noCont v-if='nocont'></noCont>
       <h2>{{text}}</h2>
       <!-- <p class="re" @click="reset">重置</p> -->
-      <p class="sucess" @click="sucess" v-show="first">怼</p>
+      <p class="sucess" @click="sucess" v-show="first">喜欢</p>
       <transition name="fade" mode="out-in">
-        <p @mouseover="sure" class="sure" ref="sure_1" v-show="two" @click="sure_2">不怼</p>
+        <p @mouseover="sure" class="sure" ref="sure_1" v-show="two" @click="sure_2">不喜欢</p>
       </transition>
     </div>
   </div>
@@ -24,7 +24,7 @@ export default {
       x: 0,
       y: 0,
       nocont: false,
-      text: '怼大海不？',
+      text: '大美女,喜欢我不？',
       first: true,
       two: true,
       i: 0
@@ -57,14 +57,14 @@ export default {
       this.$refs.sure_1.style.marginTop = Math.floor(Math.random() * 300) + 'px'
       console.log(this.$refs.sure_1.style.marginTop, this.$refs.sure_1.style.marginTop)
       this.i++
-      if (this.i > 3) {
+      if (this.i > 5) {
         this.two = false
-        alert('你不能拒绝，请使劲点怼！！！')
+        // alert('你不能拒绝，请使劲点怼！！！')
       }
     },
     sucess () {
       this.nocont = true
-      this.text = '大海被怼懵逼了，哈哈哈哈'
+      this.text = '我也喜欢你!!!'
       window.scrollTo(0, 0)
       this.first = false
       this.two = false
