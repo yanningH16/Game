@@ -3,7 +3,7 @@
     <div class="box">
       <noCont v-if='nocont'></noCont>
       <h2>{{text}}</h2>
-      <p class="re" @click="reset">重置</p>
+      <!-- <p class="re" @click="reset">重置</p> -->
       <p class="sucess" @click="sucess" v-show="first">怼</p>
       <transition name="fade" mode="out-in">
         <p @mouseover="sure" class="sure" ref="sure_1" v-show="two" @click="sure_2">不怼</p>
@@ -47,6 +47,7 @@ export default {
         this.$refs.sure_1.style.marginTop = -60 + 'px'
         setInterval(() => {
           this.two = false
+          this.sucess()
         }, 300)
       }
     },
