@@ -24,7 +24,7 @@ export default {
       x: 0,
       y: 0,
       nocont: false,
-      text: '大美女,喜欢我不？',
+      text: '皮小瑞大美女,喜欢我不？',
       first: true,
       two: true,
       i: 0

@@ -13,7 +13,7 @@
 
 <script>
 import Lottie from './lott.vue'
-import * as animationData from './boxing.json'
+import * as animationData from './beating_heart.json'
 export default {
   name: 'app',
   components: {
