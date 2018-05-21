@@ -96,7 +96,7 @@ export default {
 .sucess {
   margin-left: 70px;
   margin-top: 20px;
-  background: green;
+  background: #e1ffe1;
   padding: 10px;
   width: 50px;
   height: 40 px;
@@ -106,12 +106,12 @@ export default {
 .sure {
   margin-top: 80px;
   margin-left: 90px;
-  background: gray;
+  background: #f0e1ff;
   padding: 10px;
   width: 50px;
   height: 40 px;
   border-radius: 5px;
-  border: 2px solid slateblue;
+  border: 2px solid #ffe1f7;
 }
 .re {
   text-align: center;
